@@ -1,0 +1,18 @@
+name: Invoke js file
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  # Get the current step to only run the main job when the learner is on the same step.
+  open-google:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: Invoke js
+        run: |
+          cat google.js
